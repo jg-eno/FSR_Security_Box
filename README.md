@@ -10,6 +10,33 @@ The Proteus simulation and wiring are illustrated below.
 
 *Reference: `THEFT_MODE.jpg` — shows the system in alarm state (ADC reading and **THEFT** on the display).*
 
+## Proteus: Electronics Tree FSR-406 sensor library
+
+To use the **FSR 406** part in Proteus, install the vendor library from **`Electronics-Tree-FSR-406-Sensor-Library.zip`** (add this archive to the project folder or keep it wherever you store course materials).
+
+### Extract with WinRAR (password-protected archive)
+
+1. Right-click **`Electronics-Tree-FSR-406-Sensor-Library.zip`** → **Extract files…** (or open it in WinRAR first, then use **Extract To**).
+2. When WinRAR asks for a password, enter exactly:
+   ```
+   electronicstree.com
+   ```
+3. Choose a temporary folder (e.g. Desktop) and complete extraction. You should get library files (typically `.IDX` and `.LIB`, or similar) inside the extracted folder.
+
+### Copy into Proteus `DATA\LIBRARY`
+
+Copy the **extracted library files** (not the zip) into your Proteus installation library directory under **Program Files (x86)**, then **DATA**, then **LIBRARY**:
+
+| Typical path (adjust version folder if yours differs) |
+|--------------------------------------------------------|
+| `C:\Program Files (x86)\Labcenter Electronics\Proteus 8 Professional\DATA\LIBRARY` |
+
+- **Labcenter Electronics** is the publisher folder name for Proteus (often shortened verbally as “Lab Electronics”).
+- The middle folder may be **`Proteus 8 Professional`**, **`Proteus 8.15`** (example), or similar depending on your installed version—open **`Program Files (x86)\Labcenter Electronics\`** and pick the Proteus folder you actually use, then go to **`DATA\LIBRARY`**.
+- You may need **Administrator** rights to paste files there; if Windows blocks the copy, run File Explorer as administrator or paste into a user-writable library path if your Proteus is configured for one.
+
+Restart Proteus (or refresh libraries if your version supports it) so the **FSR 406** component appears in the parts picker.
+
 ## Behavior
 
 1. The MCU starts an ADC conversion, waits for completion, then reads the 8-bit result on the data bus.
@@ -24,6 +51,7 @@ Threshold `200` is defined in `8051_with_ADC_and_buzzer.c`; change it to match y
 | File | Role |
 |------|------|
 | `8051_with_ADC_and_buzzer.c` | Firmware for AT89C51 |
+| `Electronics-Tree-FSR-406-Sensor-Library.zip` | Proteus FSR-406 library (password: see [Proteus library](#proteus-electronics-tree-fsr-406-sensor-library) section) |
 | `THEFT_MODE.jpg` | Circuit / simulation reference (theft mode) |
 | `Safe_Mode.jpg` | Optional screenshot in normal (non-alarm) state |
 
